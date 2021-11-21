@@ -1,5 +1,10 @@
 output "k8s_cluster" {
-  value = grid_kubernetes.k8s_cluster_collators.master[0].computedip
+  value = {
+    "master" : grid_kubernetes.k8s_cluster_collators.master[0],
+    "worker0" : grid_kubernetes.k8s_cluster_collators.workers[0],
+    "worker1" : grid_kubernetes.k8s_cluster_collators.workers[1],
+    "worker2" : grid_kubernetes.k8s_cluster_collators.workers[2],
+  }
 }
 
 output "network" {
@@ -11,4 +16,3 @@ output "network" {
     "public_node_id "     = grid_network.k8s_cluster_collators.public_node_id
   }
 }
-

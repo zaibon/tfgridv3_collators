@@ -42,7 +42,7 @@ resource "grid_kubernetes" "k8s_cluster_collators" {
     content {
       disk_size = var.k8s_cluster_worker_disk
       node      = workers.value
-      name      = "node_${workers.key}"
+      name      = "worker${workers.key}"
       cpu       = var.k8s_cluster_worker_cpu
       memory    = var.k8s_cluster_worker_memory
     }
